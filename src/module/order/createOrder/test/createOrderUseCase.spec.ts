@@ -9,12 +9,6 @@ class CreateOrderDummyRepository implements CreateOrderRepository {
     }
 }
 
-class CreateOrderMockFailRepository implements CreateOrderRepository {
-    async save(order: Order): Promise<void> {
-        throw new Error('fail repo');
-    }
-}
-
 describe('US-2 : Créer une commande', () => {
 
     test('Scénario : échec, plus de 5 produits', async () => {

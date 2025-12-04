@@ -61,7 +61,7 @@ describe('US-1 : Créer une commande - E2E', () => {
         expect(response.status).toBe(201);
         const orders = await dataSource.getRepository(Order).find();
         expect(orders).toHaveLength(1);
-        expect(orders[0].productIds).toEqual([1, 2, 3]);
+        expect(orders[0].productIds.map(Number)).toEqual([1, 2, 3]);
         expect(orders[0].totalPrice).toBe(120);
         expect(orders[0].status).toBe('PENDING');
     });

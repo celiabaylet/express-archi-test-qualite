@@ -22,7 +22,7 @@ export class CreateOrderUseCase {
         try {
             await this.orderRepository.save(order);
         } catch (error) {
-            throw new Error("Erreur lors de la création de la commande");
+            throw new Error("erreur lors de la création de la commande");
         }
     }
 }

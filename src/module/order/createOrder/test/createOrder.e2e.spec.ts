@@ -61,7 +61,7 @@ describe('US-1 : Créer une commande - E2E', () => {
         expect(response.status).toBe(201);
         const orders = await dataSource.getRepository(Order).find();
         expect(orders).toHaveLength(1);
-        expect(orders[0].productIds).toEqual([1, 2, 3]);
+        expect(orders[0].productIds.map(Number)).toEqual([1, 2, 3]);
         expect(orders[0].totalPrice).toBe(120);
         expect(orders[0].status).toBe('PENDING');
     });
@@ -76,7 +76,8 @@ describe('US-1 : Créer une commande - E2E', () => {
                 totalPrice: 200
             })
             .set('Content-Type', 'application/json');
-
+        console.log(response.status);
+        console.log(response.body.message);
         expect(response.status).toBe(400);
         expect(response.body.message).toBe("Une commande ne peut contenir plus de 5 produits");
 

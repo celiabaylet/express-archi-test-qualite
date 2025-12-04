@@ -22,6 +22,5 @@ describe('US-2 : Créer une commande', () => {
             })
         ).rejects.toThrow('Une commande ne peut contenir plus de 5 produits');
     });
-
-
+    
 });
